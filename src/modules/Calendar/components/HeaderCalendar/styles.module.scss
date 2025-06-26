@@ -1,0 +1,11 @@
+@forward "@/theme/shared.scss";
+
+.header {
+  padding-bottom: 2rem;
+}
+
+.headerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

@@ -1,0 +1,16 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.trash {
+  overflow: visible;
+  transition: $mainTransition;
+
+  #Vector {
+    transition: $mainTransition;
+  }
+  &:hover {
+    #Vector {
+      transform: translate(0px, -2px);
+    }
+  }
+}

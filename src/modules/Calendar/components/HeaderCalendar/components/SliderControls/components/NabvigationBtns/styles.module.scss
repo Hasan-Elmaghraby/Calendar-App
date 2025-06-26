@@ -1,0 +1,34 @@
+@forward "@/theme/shared.scss";
+
+.navigationBtns {
+  display: flex;
+}
+
+.navigationBtnLeft,
+.navigationBtnRight {
+  background-color: $primaryColor;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5rem;
+  width: 5rem;
+
+  svg {
+    font-size: 1.8rem;
+    color: white;
+  }
+
+  &:hover {
+    background-color: $secondaryColor;
+  }
+}
+
+.navigationBtnRight {
+  border-end-end-radius: $mainBorderRadius;
+  border-start-end-radius: $mainBorderRadius;
+}
+
+.navigationBtnLeft {
+  border-start-start-radius: $mainBorderRadius;
+  border-end-start-radius: $mainBorderRadius;
+}

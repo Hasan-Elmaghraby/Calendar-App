@@ -1,0 +1,15 @@
+@forward "@/theme/shared.scss";
+
+.filterOptionsBtns {
+  display: flex;
+  align-items: center;
+
+  > :nth-child(1) {
+    border-end-start-radius: $mainBorderRadius;
+    border-start-start-radius: $mainBorderRadius;
+  }
+  > :nth-last-child(1) {
+    border-start-end-radius: $mainBorderRadius;
+    border-end-end-radius: $mainBorderRadius;
+  }
+}

@@ -1,0 +1,7 @@
+@forward "@/theme/shared.scss";
+
+.calendar {
+  background-color: white;
+  box-shadow: 0 0 30px rgba($blackColor, 0.5);
+  padding: 2rem;
+}

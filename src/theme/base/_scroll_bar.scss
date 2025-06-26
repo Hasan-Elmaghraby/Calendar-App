@@ -1,0 +1,25 @@
+@use "../abstracts/variables" as *;
+
+// scroll bar
+@media only screen and (min-width: 991px) {
+  /* width */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: rgba($primaryColor, 0.1);
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgba($primaryColor, 0.9);
+    border-radius: 10px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: $primaryColor;
+  }
+}

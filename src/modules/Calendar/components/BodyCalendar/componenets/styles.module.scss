@@ -1,0 +1,41 @@
+@forward "@/theme/shared.scss";
+
+.bodyCalendar {
+}
+
+.table {
+  width: 100%;
+  align-items: center;
+  border-spacing: 0;
+}
+
+th {
+  padding-block: 0.3rem;
+  font-size: 1.6rem;
+  border: 1px solid $primaryColor;
+  border-inline-end: none;
+
+  &:last-of-type {
+    border-inline-end: 1px solid $primaryColor;
+  }
+}
+
+tbody {
+  td {
+    text-align: end;
+    padding: 1rem;
+    padding-block: 0.3rem;
+    font-size: 1.6rem;
+    border: 1px solid $primaryColor;
+    border-inline-end: none;
+    border-block-start: none;
+    height: 10rem;
+
+    &:last-of-type {
+      border-inline-end: 1px solid $primaryColor;
+    }
+  }
+}
+
+.linkGoToDate {
+}
