@@ -1,36 +1,24 @@
 import dayjs from "dayjs";
 import { useState } from "react";
+import { getCalendarDays } from "../utlis/getCalendarDays";
 
 export const useCalendar = () => {
   const [currentDate, setCurrentDate] = useState(dayjs());
 
   const startOfMonth = currentDate.startOf("month");
-  const endOfMonth = currentDate.endOf("month");
+  const startDay = startOfMonth.day();
 
-  console.log(endOfMonth);
-  console.log(startOfMonth);
-
-  const startDay = startOfMonth.day(); // 0 = Sunday
   const daysInMonth = currentDate.daysInMonth();
+  const weeks = getCalendarDays(startDay, daysInMonth).weeks;
 
-  const calendarDays = [];
-  for (let i = 0; i < startDay; i++) {
-    calendarDays.push(null); // empty cells before 1st day
-  }
-  for (let i = 1; i <= daysInMonth; i++) {
-    calendarDays.push(i);
-  }
-
-  const weeks: (number | null)[][] = [];
-  for (let i = 0; i < calendarDays.length; i += 7) {
-    weeks.push(calendarDays.slice(i, i + 7));
-  }
-  console.log(weeks);
+  console.log(startDay, startOfMonth, daysInMonth);
 
   const goToPrevMonth = () =>
     setCurrentDate((prev) => prev.subtract(1, "month"));
+
   const goToNextMonth = () => setCurrentDate((prev) => prev.add(1, "month"));
+
   const goToNow = () => setCurrentDate(dayjs());
 
-  return { goToNextMonth, goToPrevMonth, goToNow, weeks,currentDate };
+  return { goToNextMonth, goToPrevMonth, goToNow, weeks, currentDate };
 };
