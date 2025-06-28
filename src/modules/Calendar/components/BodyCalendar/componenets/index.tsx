@@ -22,7 +22,7 @@ export const BodyCalendar: React.FC<BodyCalendarProps> = ({ weeks }) => {
           {weeks.map((week, i) => (
             <tr key={i}>
               {week.map((day, j) => (
-                <td key={j} style={{ padding: "10px", textAlign: "center" }}>
+                <td key={j} onClick={() => console.log(day)}>
                   {day ?? ""}
                 </td>
               ))}

@@ -1,16 +1,23 @@
 export const getCalendarDays = (
   startDay: number,
-
-  daysInMonth: number
+  daysInMonth: number,
+  daysInNextMonth: number[],
+  daysInPrevMonth: number[]
 ) => {
   const calendarDays = [];
 
-  for (let i = 0; i < startDay; i++) {
-    calendarDays.push(null); // empty cells before 1st day
+  for (let i = startDay - 1; i >= 0; i--) {
+    calendarDays.push(daysInPrevMonth[i]);
   }
 
   for (let i = 1; i <= daysInMonth; i++) {
     calendarDays.push(i);
+  }
+
+  const CELLS = 49;
+  const calendarCells = CELLS - (daysInMonth + startDay);
+  for (let i = 0; i < calendarCells; i++) {
+    calendarDays.push(daysInNextMonth[i]);
   }
 
   const weeks: (number | null)[][] = [];
@@ -18,5 +25,5 @@ export const getCalendarDays = (
     weeks.push(calendarDays.slice(i, i + 7));
   }
 
-  return { calendarDays, weeks };
+  return weeks;
 };
