@@ -1,0 +1,38 @@
+@forward "@/theme/shared.scss";
+
+.tableDay {
+  width: 100%;
+  align-items: center;
+  border-spacing: 0;
+}
+
+.theadDay {
+  td {
+    padding-block: 0.3rem;
+    text-align: center;
+    font-size: 1.6rem;
+    border: 1px solid $primaryColor;
+
+    &:first-of-type {
+      width: 20%;
+      border-inline-end: none;
+    }
+  }
+}
+
+.tbodyDay {
+  td {
+    padding: 1rem;
+    padding-block: 0.3rem;
+    font-size: 1.6rem;
+    border: 1px solid $primaryColor;
+    border-inline-end: none;
+    border-block-start: none;
+    height: 7rem;
+    text-align: center;
+
+    &:last-of-type {
+      border-inline-end: 1px solid $primaryColor;
+    }
+  }
+}

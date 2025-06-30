@@ -23,6 +23,7 @@ export const CalendarContextProvider: React.FC<Props> = ({ children }) => {
 
   const weeksInNextMonth = getCalendarDaysInNextMonth(daysInNextMonth);
   const weeksInPrevMonth = getCalendarDaysInPrevMonth(daysInPrevMonth);
+
   const weeks = getCalendarDays(
     startDay,
     daysInMonth,
@@ -37,9 +38,27 @@ export const CalendarContextProvider: React.FC<Props> = ({ children }) => {
 
   const goToNow = () => setCurrentDate(dayjs());
 
+  const goToPrevDay = () => setCurrentDate((prev) => prev.subtract(1, "day"));
+
+  const goToNextDay = () => setCurrentDate((prev) => prev.add(1, "day"));
+
+  const goToPrevWeek = () => setCurrentDate((prev) => prev.subtract(1, "week"));
+
+  const goToNextWeek = () => setCurrentDate((prev) => prev.add(1, "week"));
+
+  const goToSpecificDay = (dayNumber: number) => {
+    const newDate = currentDate.date(dayNumber);
+    setCurrentDate(newDate);
+  };
+
   const valueToShare = {
     goToNextMonth,
     goToPrevMonth,
+    goToPrevDay,
+    goToNextDay,
+    goToPrevWeek,
+    goToNextWeek,
+    goToSpecificDay,
     goToNow,
     weeks,
     currentDate,

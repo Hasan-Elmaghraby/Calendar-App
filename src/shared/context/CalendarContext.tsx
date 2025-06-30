@@ -5,6 +5,12 @@ interface CalendarContextType {
   goToNextMonth: () => void;
   goToPrevMonth: () => void;
   goToNow: () => void;
+  goToNextDay: () => void;
+  goToPrevDay: () => void;
+  goToNextWeek: () => void;
+  goToPrevWeek: () => void;
+  goToSpecificDay: (n: number) => void;
+
   weeks: (number | null)[][];
   currentDate: dayjs.Dayjs;
 }
