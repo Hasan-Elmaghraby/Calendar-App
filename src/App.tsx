@@ -4,6 +4,8 @@ import { HeaderCalendar } from "./shared/components/HeaderCalendar";
 
 const Calendar = lazy(() => import("./modules/Calendar"));
 const CalendarDay = lazy(() => import("./modules/CalendarDay"));
+const CalendarWeek = lazy(() => import("./modules/CalendarWeek"));
+const CalendarList = lazy(() => import("./modules/CalendarList"));
 
 function App() {
   return (
@@ -11,7 +13,9 @@ function App() {
       <HeaderCalendar />
       <Routes>
         <Route path="/" element={<Calendar />} />
-        <Route path="/day/:id" element={<CalendarDay />} />
+        <Route path="/day" element={<CalendarDay />} />
+        <Route path="/week" element={<CalendarWeek />} />
+        <Route path="/list" element={<CalendarList />} />
       </Routes>
     </Suspense>
   );

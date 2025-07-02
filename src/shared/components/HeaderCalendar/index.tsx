@@ -4,9 +4,8 @@ import { useCalendarContext } from "@/shared/hooks/useCalendarContext";
 import { useClickHeader } from "./hooks/useClickHeader";
 
 export const HeaderCalendar: React.FC = () => {
-  const { goToNow } = useCalendarContext();
-
   const { onClickNext, onClickPrevious, format } = useClickHeader();
+  const { goToNow } = useCalendarContext();
 
   return (
     <Header

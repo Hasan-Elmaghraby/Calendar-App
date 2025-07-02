@@ -6,15 +6,14 @@ import styles from "./styles.module.scss";
 import { hours12 } from "./utlis/data";
 
 const CalendarDay = () => {
-  const location = useLocation();
-  const number = location.state?.date;
-  console.log(number);
-
   const { currentDate, goToSpecificDay } = useCalendarContext();
+  const location = useLocation();
+  const number = location.state?.date || currentDate.date();
 
   useEffect(() => {
     goToSpecificDay(number);
   }, []);
+
   return (
     <Container>
       <table className={styles.tableDay}>

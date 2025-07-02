@@ -1,28 +1,27 @@
 @forward "@/theme/shared.scss";
 
-.bodyCalendar {
-}
-
-.table {
+.tableWeek {
   width: 100%;
   align-items: center;
   border-spacing: 0;
 }
 
-th {
-  padding-block: 0.3rem;
-  font-size: 1.6rem;
-  border: 1px solid $primaryColor;
-  border-inline-end: none;
+.tbodyWeek {
+  td {
+    padding-block: 0.3rem;
+    text-align: center;
+    font-size: 1.6rem;
+    border: 1px solid $primaryColor;
 
-  &:last-of-type {
-    border-inline-end: 1px solid $primaryColor;
+    &:first-of-type {
+      width: 20%;
+      border-inline-end: none;
+    }
   }
 }
 
-tbody {
+.tbodyWeek {
   td {
-    text-align: end;
     padding: 1rem;
     padding-block: 0.3rem;
     font-size: 1.6rem;
@@ -30,16 +29,10 @@ tbody {
     border-inline-end: none;
     border-block-start: none;
     height: 7rem;
+    text-align: center;
 
     &:last-of-type {
       border-inline-end: 1px solid $primaryColor;
     }
-
-    &.notCurrent {
-      background-color: red;
-    }
   }
-}
-
-.linkGoToDate {
 }

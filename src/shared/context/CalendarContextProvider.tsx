@@ -51,6 +51,9 @@ export const CalendarContextProvider: React.FC<Props> = ({ children }) => {
     setCurrentDate(newDate);
   };
 
+  const starOfWeek = currentDate.startOf("week").format("DD");
+  const endOfWeek = currentDate.endOf("week").format("DD");
+
   const valueToShare = {
     goToNextMonth,
     goToPrevMonth,
@@ -62,6 +65,8 @@ export const CalendarContextProvider: React.FC<Props> = ({ children }) => {
     goToNow,
     weeks,
     currentDate,
+    starOfWeek,
+    endOfWeek,
   };
 
   return (

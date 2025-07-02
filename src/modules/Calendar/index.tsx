@@ -11,6 +11,8 @@ const Calendar: React.FC = () => {
 
   const { weeks } = useCalendarContext();
 
+  console.log(weeks);
+
   return (
     <div className={styles.bodyCalendar}>
       <Container>
@@ -25,14 +27,14 @@ const Calendar: React.FC = () => {
           <tbody>
             {weeks.map((week, i) => (
               <tr key={i}>
-                {week.map((day, j) => (
+                {week.map((cell, j) => (
                   <td
                     key={j}
-                    onClick={() => {
-                      navigate(`/day/${day}`, { state: { date: day } });
-                    }}
+                    className={
+                      cell?.monthType !== "current" ? styles.notCurrent : ""
+                    }
                   >
-                    {day ?? ""}
+                    {cell?.day}
                   </td>
                 ))}
               </tr>

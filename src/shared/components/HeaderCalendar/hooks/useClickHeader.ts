@@ -2,6 +2,7 @@ import { useCalendarContext } from "@/shared/hooks/useCalendarContext";
 import { useLocation } from "react-router-dom";
 
 export const useClickHeader = () => {
+  const { starOfWeek, endOfWeek } = useCalendarContext();
   const location = useLocation();
 
   const getActionType = () => {
@@ -22,6 +23,8 @@ export const useClickHeader = () => {
     goToPrevWeek,
     currentDate,
   } = useCalendarContext();
+
+  console.log(currentDate.format("MMMM"));
 
   const onClickNext = () => {
     switch (type) {
@@ -62,6 +65,8 @@ export const useClickHeader = () => {
       ? currentDate.format(" MMMM  YYYY")
       : type === "DAY"
       ? currentDate.format(" MMMM DD, YYYY")
+      : type === "WEEK"
+      ? currentDate.format(`${starOfWeek} MMMM ${endOfWeek} MMMM  YYYY`)
       : currentDate.format(" MMMM  YYYY")
   } `;
 

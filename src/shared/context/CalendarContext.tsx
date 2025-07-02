@@ -10,6 +10,8 @@ interface CalendarContextType {
   goToNextWeek: () => void;
   goToPrevWeek: () => void;
   goToSpecificDay: (n: number) => void;
+  starOfWeek: string;
+  endOfWeek: string;
 
   weeks: (number | null)[][];
   currentDate: dayjs.Dayjs;
