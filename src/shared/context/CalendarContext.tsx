@@ -1,6 +1,11 @@
 import dayjs from "dayjs";
 import { createContext } from "react";
 
+type CalendarDay = {
+  day: number;
+  monthType: "prev" | "current" | "next";
+};
+
 interface CalendarContextType {
   goToNextMonth: () => void;
   goToPrevMonth: () => void;
@@ -9,11 +14,10 @@ interface CalendarContextType {
   goToPrevDay: () => void;
   goToNextWeek: () => void;
   goToPrevWeek: () => void;
-  goToSpecificDay: (n: number) => void;
-  starOfWeek: string;
+  goToSpecificDay: (day: CalendarDay) => void;
+  startOfWeek: string;
   endOfWeek: string;
-
-  weeks: (number | null)[][];
+  weeks: (CalendarDay | null)[][];
   currentDate: dayjs.Dayjs;
 }
 

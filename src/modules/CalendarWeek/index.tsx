@@ -12,6 +12,7 @@ const CalendarWeek = () => {
   const endOfWeek = currentDate.endOf("week");
 
   const daysArray = getArrayOfWeek(startOfWeek, endOfWeek);
+
   return (
     <Container>
       <table className={styles.tableWeek}>

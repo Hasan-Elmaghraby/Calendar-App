@@ -46,12 +46,20 @@ export const CalendarContextProvider: React.FC<Props> = ({ children }) => {
 
   const goToNextWeek = () => setCurrentDate((prev) => prev.add(1, "week"));
 
-  const goToSpecificDay = (dayNumber: number) => {
-    const newDate = currentDate.date(dayNumber);
+  const goToSpecificDay = (day: { day: number; monthType: string }) => {
+    let newDate = currentDate;
+
+    if (day.monthType === "prev") {
+      newDate = newDate.subtract(1, "month");
+    } else if (day.monthType === "next") {
+      newDate = newDate.add(1, "month");
+    }
+
+    newDate = newDate.date(day.day);
     setCurrentDate(newDate);
   };
 
-  const starOfWeek = currentDate.startOf("week").format("DD");
+  const startOfWeek = currentDate.startOf("week").format("DD");
   const endOfWeek = currentDate.endOf("week").format("DD");
 
   const valueToShare = {
@@ -65,7 +73,7 @@ export const CalendarContextProvider: React.FC<Props> = ({ children }) => {
     goToNow,
     weeks,
     currentDate,
-    starOfWeek,
+    startOfWeek,
     endOfWeek,
   };
 

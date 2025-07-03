@@ -22,7 +22,7 @@ th {
 
 tbody {
   td {
-    text-align: end;
+    text-align: start;
     padding: 1rem;
     padding-block: 0.3rem;
     font-size: 1.6rem;
@@ -36,10 +36,26 @@ tbody {
     }
 
     &.notCurrent {
-      background-color: red;
+      color: gray;
     }
   }
 }
 
-.linkGoToDate {
+.defaultNumber {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: inherit;
+
+  &.currentNumber {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include circle(3rem);
+    border: 1px solid $primaryColor;
+    color: inherit;
+    font-weight: 800;
+  }
 }

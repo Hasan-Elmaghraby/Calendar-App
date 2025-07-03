@@ -39,8 +39,5 @@ export const getCalendarDays = (
     weeks.push(calendarDays.slice(i, i + 7));
   }
 
-  console.log(calendarDays.length);
-  console.log(calendarDays);
-
   return weeks;
 };

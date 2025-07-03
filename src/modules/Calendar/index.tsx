@@ -9,9 +9,7 @@ const WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const Calendar: React.FC = () => {
   const navigate = useNavigate();
 
-  const { weeks } = useCalendarContext();
-
-  console.log(weeks);
+  const { weeks, currentDate } = useCalendarContext();
 
   return (
     <div className={styles.bodyCalendar}>
@@ -27,14 +25,25 @@ const Calendar: React.FC = () => {
           <tbody>
             {weeks.map((week, i) => (
               <tr key={i}>
-                {week.map((cell, j) => (
+                {week.map((cell, j: number) => (
                   <td
+                    onClick={() => {
+                      navigate("/day", { state: { date: cell } });
+                    }}
                     key={j}
-                    className={
+                    className={`${
                       cell?.monthType !== "current" ? styles.notCurrent : ""
-                    }
+                    } `}
                   >
-                    {cell?.day}
+                    <span
+                      className={`${styles.defaultNumber} ${
+                        cell?.day === currentDate.date() &&
+                        cell?.monthType === "current" &&
+                        styles.currentNumber
+                      }`}
+                    >
+                      {cell?.day}
+                    </span>
                   </td>
                 ))}
               </tr>

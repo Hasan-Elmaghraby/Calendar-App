@@ -5,14 +5,21 @@ import { Container } from "@/shared/components/Container";
 import styles from "./styles.module.scss";
 import { hours12 } from "./utlis/data";
 
+export type CalendarDay = {
+  day: number;
+  monthType: "prev" | "current" | "next";
+};
+
 const CalendarDay = () => {
   const { currentDate, goToSpecificDay } = useCalendarContext();
   const location = useLocation();
-  const number = location.state?.date || currentDate.date();
+  const date = location.state?.date as CalendarDay | undefined;
 
   useEffect(() => {
-    goToSpecificDay(number);
-  }, []);
+    if (date && typeof date.day === "number" && date.monthType) {
+      goToSpecificDay(date);
+    }
+  }, [date]);
 
   return (
     <Container>
